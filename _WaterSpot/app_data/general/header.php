@@ -1,5 +1,5 @@
 <?php
-$config = parse_ini_file('../../app_data/config.ini');
+$config = parse_ini_file('../config.ini');
 session_start(); ?>
 
 <html lang="en">
@@ -9,11 +9,11 @@ session_start(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="../style/Style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="Mapping.js"></script>
-    <script type="text/javascript" src="GetForecast.js"></script>
+    <script type="text/javascript" src="../Js/Mapping.js"></script>
+    <script type="text/javascript" src="../Js/GetForecast.js"></script>
     <script type="text/javascript">
 
     var captcha1="";
@@ -21,13 +21,13 @@ session_start(); ?>
       var onloadCallback = function() {
         if ($("#captcha1").length>0) {
           captcha1 = grecaptcha.render('captcha1', {
-            'sitekey' : '6LcdyjYUAAAAAE-VaswScrj4QonDomFQSRS0sxY2',
+            'sitekey' : '*',
             'theme' : 'light'
           });
         }
         if ($("#captcha2").length>0) {
           captcha2 = grecaptcha.render('captcha2', {
-            'sitekey' : '6LcdyjYUAAAAAE-VaswScrj4QonDomFQSRS0sxY2',
+            'sitekey' : '*',
             'theme' : 'light'
           });
         }
@@ -83,7 +83,7 @@ if (!$_SESSION['email']) {
   include 'headerForm.php';
 } else {
   echo '
-  <a class="btn btn-info m-2" href="logout.php">Log Out</a>';
+  <a class="btn btn-info m-2" href="../account/login/logout.php">Log Out</a>';
 }
 echo'
   </div>

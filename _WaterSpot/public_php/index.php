@@ -1,8 +1,8 @@
 <?php
-$config = parse_ini_file('../../app_data/config.ini');
+$config = parse_ini_file('../app_data/config.ini');
 session_start();
 
-include 'header.php'; ?>
+include '../app_data/header.php'; ?>
 
   <!-- MainContent -->
 
