@@ -1,0 +1,506 @@
+/*for mobile phones*/
+
+body {
+	margin:0;
+	font-family:Impact;
+	display:none;
+}
+
+#menuButton {
+	position:fixed;
+	top:1%;
+	left:1%;
+	height:40px;
+	width:40px;
+	z-index:101;
+	border-radius:20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	
+}
+#menuButton:hover {
+	cursor:pointer;
+	background-color:rgba(243, 243, 243, 0.8);
+	
+}
+
+#menu {
+	display:none;
+	position:fixed;
+	top:1%;
+	left:1%;
+	width:120px;
+	height:40px;
+	background-color:rgba(243, 243, 243, 0.8);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	padding-left:40px;
+	border-radius:20px;
+	z-index:100;
+}
+
+.menuTab {
+	float:left;
+	vertical-align:middle;
+	padding:0 2%;
+	height:40px;
+	line-height:40px;
+	font-family:Impact;
+	
+}
+
+.menuTab p {
+	margin:0;
+}
+.menuTab p a {
+	text-decoration:none;
+	color:black;
+}
+
+.menuTab:hover {
+	border-radius:25%;
+	background-color:rgba(243, 226, 237, 1);
+}
+
+.header {
+    height: 32vh;
+	background:rgba(252, 244, 219, 0.2);
+}
+
+.header2 {
+	height: 150px;
+	top: 30vh;
+	width:300px;
+	position:relative;
+	margin:0 auto;
+	background:rgba(250, 255, 255, 0.9);
+	border-radius:5px;
+	
+}	
+
+.header, .header2 {
+	font-family:'Neucha', cursive;
+	text-align:center;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header2 h1{
+	line-height:150px;
+	-webkit-text-fill-color:rgba(255, 255, 255, 0.01);
+}
+
+.header h1{
+	line-height:32vh;
+	-webkit-text-fill-color:rgba(150, 34, 34, 0.1);
+}
+
+.header h1 , .header2 h1{
+	
+	font-family:Impact;
+	font-size:450%;
+	color:black;
+	text-align:center;
+	background: url("images/computer_code.jpg");
+	background-position:center top;
+	background-repeat:no-repeat;
+	background-size: 200px 60vh;
+	background-attachment:fixed;
+	-webkit-background-clip:text;
+	margin:0;
+	padding:0;
+}
+
+.scrollDown {
+	font-size:300%;
+	background:transparent;
+	position:absolute;
+  	z-index:120;
+	color:white;
+	border:none;
+	top:80vh;
+	opacity:0.7;
+  	display:block;
+  	left:50%;
+  	transform:translate(-50%,0%);
+}
+
+.scrollDown:hover {
+	opacity:0.9;
+}
+.scrollDown:focus {
+	outline:none;
+	opacity:0.8;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 30vh auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+  	font-family: 'Neucha', cursive;
+  	font-size:150%;
+  	border-radius:10px;
+  
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.parallax-container {
+    height: 34vh;
+    background: transparent;
+	position:relative;
+	text-align:center;
+	
+}
+
+.parallax-container2 {
+    height: 100vh;
+    background: transparent;
+	position:relative;
+	text-align:center;
+	z-index:-100;
+	
+}
+
+.content {
+    min-height: 300px;
+	position:relative;
+	background:rgba(252, 244, 219, 0.2);
+	font-family: 'Neucha', cursive;
+	padding:20px 0;
+}
+
+
+.content h1 {
+	margin:0;
+	text-align:center;
+	padding:1%;	
+}
+
+
+
+
+#profileImg {
+	border-radius:50%;
+	width:150px;
+	height:150px;
+	float:left;
+	margin:0 3% 3% 2%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#who {
+	width:90%;
+	position:relative;
+	margin:0 auto;
+}
+
+#who p{
+	margin:0;
+	width:100%;
+	text-align:left;
+	font-size:120%;
+}
+
+
+
+
+.servicesContainer {
+	height:1300px;
+	width:90%;
+	margin:0 auto;
+	position:relative;
+}
+
+.services {
+	width:160px;
+	height:190px;
+	font-size:100%;
+	float:none;
+	border:1px solid black;
+	overflow: hidden;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position:relative;
+	margin:20px auto;
+  	
+}
+
+.services h3 {
+	text-align:center;
+	margin:8px 0 20px 0;
+	
+}
+
+.services img {
+  	width:99%;
+    height:99%;
+	position:absolute;
+	object-fit: contain;
+  	margin:1%;
+}
+
+.information {
+	position:relative;
+	width:100%;
+	height:100%;
+	padding:1%;
+	top:70%;
+	font-size:100%;
+	background:rgba(252, 244, 230, 0.9);
+	-webkit-transition: top 1s; /* Safari */
+    transition: top 1s;
+	
+}
+
+
+.information:hover {
+	top:0;
+	
+}
+
+.information p {
+	display:none;
+}
+
+.information:hover p, .information.hover p {
+	display:block;
+	
+}
+
+
+
+
+
+#contactForm {
+	position:relative;
+	padding:0 5%;
+}
+
+#contactForm input {
+	width:100%;
+	padding:12px 20px;
+	margin:8px 0;
+	box-sizing:border-box;
+	border-radius:5px;
+	border:2px solid grey;
+	font-family:'Neucha', cursive, Arial;
+	
+}
+
+#contactForm p {
+	width:90%;
+	margin:0;
+	font-size:120%;
+	text-align:left;
+	
+}
+
+#contactForm label, #contactForm input {
+	font-size:120%;
+}
+
+#contactForm input:focus, #message:focus{
+	outline:none;
+	border-radius:5px;
+	border:2px solid blue;
+}
+#contactForm input[type=submit] {
+	width:50%;
+	left:25%;
+	position:relative;
+	font-size:150%;
+}
+
+#message {
+	height:200px;
+	width:100%;
+	padding:12px 20px;
+	margin:8px 0;
+	box-sizing:border-box;
+	border-radius:5px;
+	border:2px solid grey;
+	resize:none;
+	font-family:'Neucha', cursive, Arial;
+	font-size:150%;
+  	overflow:scroll;
+}
+
+
+.contact {
+	position:relative;
+	text-align:center;
+	font-family: 'Neucha', cursive;
+	border:2px solid grey;
+	font-size:200%;
+	padding:3%;
+	background:red;
+	border-radius:5px;
+	color:black;
+	text-decoration:none;
+	top:40%;
+	background-color:rgba(243, 226, 237, 0.4);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
+}
+
+.contact:visited {
+	color:black;
+}
+
+.contact:hover {
+	background-color:rgba(243, 226, 237, 0.8);
+}
+
+
+#footer {
+	text-align:center;
+	background-color:rgba(128, 206, 200, 0.2);
+	margin:0;
+	padding:1%;
+	
+}
+
+#linked-in {
+	width:5%;
+  	height:5%;
+}
+
+#CCA {
+ 	width:15.5%;
+  	
+  	
+}
+@media only screen and (min-width:450px){
+	
+	
+  	
+    .scrollDown {
+      	font-size:400%;
+  	}
+  
+	.header h1 , .header2 h1{
+		background-size: 300px 60vh;
+		font-size:700%;
+	}
+	
+	.header2 h1{
+		line-height:200px;
+	}
+	
+	.header2 {
+		
+		width:300px;
+		height:200px
+	}
+	.servicesContainer {
+		height:800px;
+	}
+	#who p{
+		font-size:160%;
+	}
+	
+	.services {
+		width:40%;
+		margin:40px 4%;
+		float:left;
+	}
+	
+	#menuButton {
+		top:2%;
+		left:2%;
+		height:70px;
+		width:70px;
+		z-index:101;
+		border-radius:35px;
+	}
+	
+	#menu {
+		top:2%;
+		left:2%;
+		width:130px;
+		height:70px;
+		padding-left:70px;
+		border-radius:35px;
+	}
+	
+	.menuTab {
+		padding:0 5%;
+		height:70px;
+		line-height:70px;
+	}
+	
+	#contactForm p {
+		font-size:160%;
+	}
+  	
+  	#message {
+		height:500px;
+  	}
+}
+	
+
+@media only screen and (min-width:725px){
+	.servicesContainer {
+		height:600px;
+	}
+	
+	.information {
+		top:70%;
+		font-size:110%;
+	}
+	
+	#who p{
+		font-size:180%;
+	}
+	
+	.services {
+		width:23%;
+		height:35%;
+		margin:40px 5%;
+		float:left;
+	}
+	
+	.content {
+		padding:50px 0;
+	}
+	
+	
+	#contactForm p {
+		font-size:180%;
+	}
+}
+
+@media only screen and (min-width:1100px){
+	.information {
+		top:70%;
+		font-size:120%;
+	}
+}
