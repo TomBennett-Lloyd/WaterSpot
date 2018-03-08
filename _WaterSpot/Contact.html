@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+		
+      	<title>Contact: Bennett-Lloyd Tech</title>
+		
+		<script src="jquery/jquery.min.js"></script>
+		<script src="jquery/UI/jquery-ui.min.js"></script>
+		<script src="jquery/parallax/parallax.min.js"></script>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<link rel="stylesheet" type="text/css" href="jquery/UI/jquery-ui.css">
+	</head>
+	<body id="body">
+		
+	
+		<img id="menuButton" src="images/menuButton2.png">
+		<div id="menu">
+			<div class="menuTab">
+				<p><a href="index.html">Home</a></p>
+			</div>
+			
+			<div class="menuTab">
+				<p><a href="Contact.html">Contact</a></p>
+			</div>
+		</div>
+		
+		<div id="img1" class="parallax-container2" data-parallax="scroll" data-image-src="images/4.JPG">
+			<div class="header2">
+					<h1>B-LT<span style="font-size:50%;">ech</span></h1>
+			</div>
+          	
+		</div>
+		
+      	<button id="scrollDown2" class="scrollDown fa fa-chevron-circle-down"></button>
+		
+		
+		
+		<div class="content" id="content1">
+			<h1>Get In Touch!</h1>
+			<div id="contactForm">
+				<p>If you like the sound of what I can offer then please get in touch!</br>Please use the form below to contact me.</p>
+				</br>
+				<p> I am currently based in Menai Bridge on Anglesey, North Wales, and can visit you
+				personally if you are nearby.</p>
+				</br>
+			
+				<form action="contact.php" method="post" name="contactForm" id="contactForm">
+					<label for="name" id="name">* Name:</label>
+					<input type=text name="name" placeholder="Name Surname">
+					<label for="email">* Email:</label>
+					<input type=text name="email" placeholder="eg. yourname@example.com" id="email">
+					<label for="phone">Phone Number:</label>
+					<input type=number name="phone" placeholder="01234567890" id="phone">
+					<label for="message">* Message:</label>
+					<textarea name="message" id="message" placeholder="Your Message"></textarea><br>
+					<input type="submit" value="Send" id="submit">
+				</form>
+			</div>
+		</div>
+		<div id="img3" class="parallax-container" data-parallax="scroll" data-image-src="images/3.JPG"></div>
+		<div id="footer">
+          	<a  href="https://www.linkedin.com/in/tom-bennett-lloyd/"><img id="linked-in" src="images/linked-in.png"></a>
+          	<a  href="https://www.freelancer.com/u/BLloydTech"><img id="linked-in" src="images/freelancer.jpg"></a>
+          	<a  href="https://www.the-cca.org/"><img id="CCA" src="images/CCA.png"></a>
+			<p>&copy; Copyright Bennett-Lloyd Tech. 2017 All rights reserved.</p>
+		</div>
+
+		<div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p></p>
+          </div>
+
+        </div>
+		
+		<script type="text/javascript">
+			$('#img1').parallax({imageSrc: 'images/4.JPG'});
+			$('#img2').parallax({imageSrc: 'images/1.JPG'});
+			$('#img3').parallax({imageSrc: 'images/2.JPG'});
+			$('#img4').parallax({imageSrc: 'images/3.JPG'})
+			
+			
+			$('#menuButton').click(function(){
+				if ($('#menu').css("display")=="none"){
+					$('#menu').fadeIn("slow");
+				} else {
+					$('#menu').fadeOut("slow");
+				}
+			});
+			
+			$('#body').fadeIn("slow");
+          	
+            var inputBorderCol=$("#email").css("border-color");
+          	var regex=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          	$("#email").on("keyup change blur paste cut click", function(){ 
+               if (!regex.test($(this).val())){
+                  $(this).css("border-color","red");
+                  console.log($("#email").val());
+                }else{
+                  $(this).css("border-color",inputBorderCol);
+                }
+              });
+          	
+          $('#contactForm').submit(function(event){
+              	/* stop form from submitting normally */
+     			event.preventDefault();
+              	if (!regex.test($("#email").val())){
+                  $("#myModal").css("display","block");
+                  $("#myModal p").text("Sorry, the email adress you entered was not valid. Please try again!");
+                 
+                }else{
+                  /* get the action attribute from the <form action=""> element */
+                  var $form = $( '#contactForm' ),
+                      url = 'contact.php';
+
+                  /* Send the data using post with element id */
+                  var posting = $.post( url, $(contactForm).serializeArray() );
+
+                  /* Alerts the results */
+                  posting.done(function(){
+                    $("#myModal").css("display","block");
+                    $("#myModal p").text("Thank you for your message, I'll be in touch soon!");
+                  	$(contactForm).find("input[type=text], input[type=number], textarea").val("");
+                  });
+                }
+              });
+          
+          	$.fn.scrollView = function () {
+				return this.each(function () {
+					$('html, body').animate({
+						scrollTop: $(this).offset().top
+					}, 1000);
+				});
+			}
+			
+			$('#scrollDown2').click(function (event) {
+				event.preventDefault();
+				$('#content1').scrollView();
+			});
+          
+          	// Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+			// Get the modal
+			var modal = document.getElementById('myModal');
+
+           
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+		</script>
+	</body>
+
+</html>
