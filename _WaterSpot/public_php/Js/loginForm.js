@@ -1,5 +1,6 @@
 
 var regex=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+var messages = ["#passwordResetFail","#incorrect", "#alreadySignedUp", "#invalidPassword", "#invalidEmail", "#signedUp", "#noCaptcha"]
 $("#username").on("keyup change blur paste cut click", function(){
  if (!regex.test($(this).val())){
     $(this).css("border-color","red");
@@ -19,18 +20,20 @@ $('.loginButton').click(function(event){
         /* stop form from submitting normally */
   var form = $("#login");
   var response = grecaptcha.getResponse();
-  $("#incorrect #alreadySignedUp #invalidPassword #invalidEmail").hide();
+  $.each(messages,function(key,value) {
+    $(value).hide();
+  })
   if (!$("#username, #password").val()){
-    $("#nothing").show();
+    showFade("#nothing");
   }else if (!regex.test($("#username").val())){
 
-    $("#invalidEmail").show();
+    showFade("#invalidEmail");
 
   } else if ($("#password").val().length<8) {
-    $("#invalidPassword").show();
+    showFade("#invalidPassword");
 
   } else if(response.length == 0) {
-      $("#noCaptcha").show();
+      showFade("#noCaptcha");
 
   } else {
     if ($("#login input[type=hidden]").length>0) {
@@ -41,8 +44,9 @@ $('.loginButton').click(function(event){
           .attr('value', $(this).attr('value'))
           .appendTo(form);
     }
-    $('#incorrect, #alreadySignedUp, #invalidPassword, #invalidEmail').hide();
-
+    $.each(messages,function(key,value) {
+      $(value).hide();
+    })
 
     var data=form.serializeArray();
 
@@ -57,48 +61,35 @@ $('.loginButton').click(function(event){
           console.log(results);
           if (results.success==1) {
             window.location.reload();
-
           } else if (results.success==2) {
-
             $("#alreadySignedUp").show();
-            document.getElementById("login").reset();
-            grecaptcha.reset(captcha1);
+            resetForm();
           } else if (results.success==3) {
-
-            $("#signedUp").show(function(){
-              setTimeout(function(){
-                $("#signedUp").fadeOut("slow");
-                document.getElementById("login").reset();
-                grecaptcha.reset(captcha1);
-              },2000);
-            });
-
+            showFade("#signedUp",resetForm);
           } else if (results.success==5) {
-
-            $("#passwordResetFail").show(function(){
-              setTimeout(function(){
-                $("#PasswordReset").fadeOut("slow");
-                document.getElementById("login").reset();
-                grecaptcha.reset(captcha1);
-              },2000);
-            });
+            showFade("#passwordResetFail",resetForm);
           } else if (results.success==4) {
-
-            $("#passwordReset").show(function(){
-              setTimeout(function(){
-                $("#PasswordReset").fadeOut("slow");
-                document.getElementById("login").reset();
-                grecaptcha.reset(captcha1);
-              },2000);
-            });
+            showFade("#passwordReset",resetForm);
           } else {
-
             $("#incorrect").show();
-            document.getElementById("login").reset();
-            grecaptcha.reset(captcha1);
+            resetForm();
           }
-
       }
     });
   }
 });
+
+function showFade (element,callback="") {
+  $(element).show(function(){
+    setTimeout(function(){
+      $(element).fadeOut("slow");
+    },5000);
+    if (callback!==""){
+      callback();
+    }
+  });
+}
+function resetForm () {
+  document.getElementById("login").reset();
+  grecaptcha.reset(captcha1);
+}
